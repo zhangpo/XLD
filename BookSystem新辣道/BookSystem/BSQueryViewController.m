@@ -390,7 +390,6 @@
         cell.delegete=self;
     }
     NSString *str=[[_dataArray objectAtIndex:indexPath.row] objectForKey:@"select"];
-    NSLog(@"%@",str);
     cell.lblPrice.textAlignment=UITextAlignmentRight;
     cell.lblcui.text=@"";
     cell.lbltalPreice.text=@"";

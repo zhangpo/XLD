@@ -1095,7 +1095,7 @@
             }
             else
             {
-                double mrMoney = 0.0;
+                double mrMoney = 0.0f;
                 double tcMoney=[[[_selectArray objectAtIndex:([_selectArray count]-[arry count]-1)] objectForKey:@"PRICE"] doubleValue];
                 for (int i=[_selectArray count]-[arry count]; i<[_selectArray count]; i++) {
                     
@@ -1105,14 +1105,15 @@
                     }
                     mrMoney+=[[dict objectForKey:@"PRICE"] doubleValue];
                 }
-                for (int i=[_selectArray count]-[arry count]; i<[_selectArray count]; i++) {
+                double youhuijia =mrMoney-tcMoney;
+                for (int i=[_selectArray count]-[arry count]; i<[_selectArray count]; i++)
+                {
                     NSDictionary *dict=[_selectArray objectAtIndex:i];
                     double m_price1=[[dict objectForKey:@"PRICE"] doubleValue];
                     int TC_m_State=[[dict objectForKey:@"TCMONEYMODE"] doubleValue];
                     if(TC_m_State == 1)   //计价方式一
                     {
-                        
-                        double youhuijia =mrMoney-tcMoney;     //优惠的价钱    合计 - 套餐价额
+                        //优惠的价钱    合计 - 套餐价额
                         double tempMoney1=m_price1-(youhuijia*(m_price1/mrMoney));
                         [dict setValue:[NSString stringWithFormat:@"%.2f",tempMoney1] forKey:@"PRICE"];
                     }
@@ -1122,7 +1123,7 @@
                         [dict1 setValue:[NSString stringWithFormat:@"%.2f",mrMoney] forKey:@"PRICE"];
                     }else if (TC_m_State==3) {
                         if (mrMoney<tcMoney) {
-                            double youhuijia =mrMoney-tcMoney;     //优惠的价钱    合计 - 套餐价额
+//                            double youhuijia =mrMoney-tcMoney;     //优惠的价钱    合计 - 套餐价额
                             double tempMoney1=m_price1-(youhuijia*(m_price1/mrMoney));
                             [dict setValue:[NSString stringWithFormat:@"%.2f",tempMoney1] forKey:@"PRICE"];
                         }
@@ -1132,7 +1133,8 @@
                             [dict1 setValue:[NSString stringWithFormat:@"%.2f",mrMoney] forKey:@"PRICE"];
                         }
                     }
-                    float mrMoney = 0.0;
+                    if (i==[_selectArray count]-1) {
+                    mrMoney = 0.0f;
                     float tcMoney=[[[_selectArray objectAtIndex:([_selectArray count]-[arry count]-1)] objectForKey:@"PRICE"] floatValue];
                     for (int i=[_selectArray count]-[arry count]; i<[_selectArray count]; i++) {
                         
@@ -1155,6 +1157,7 @@
                                 
                             }
                         }
+                    }
                     }
                 }
                 [_Combo removeAllObjects];

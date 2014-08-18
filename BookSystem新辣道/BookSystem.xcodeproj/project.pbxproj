@@ -279,7 +279,6 @@
 		1ED195AE19599F8F00DB2B07 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195AD19599F8F00DB2B07 /* CFNetwork.framework */; };
 		1ED195B019599FD400DB2B07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195AF19599FD400DB2B07 /* SystemConfiguration.framework */; };
 		1ED195B219599FF200DB2B07 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195B119599FF200DB2B07 /* MobileCoreServices.framework */; };
-		1ED195B41959A00700DB2B07 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195B31959A00700DB2B07 /* MediaAccessibility.framework */; };
 		1ED195B61959A03800DB2B07 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195B51959A03700DB2B07 /* OpenGLES.framework */; };
 		1ED195B81959A04700DB2B07 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED195B71959A04700DB2B07 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -702,7 +701,6 @@
 				1ED193F319598D2F00DB2B07 /* CoreGraphics.framework in Frameworks */,
 				1ED195B81959A04700DB2B07 /* QuartzCore.framework in Frameworks */,
 				1ED195B61959A03800DB2B07 /* OpenGLES.framework in Frameworks */,
-				1ED195B41959A00700DB2B07 /* MediaAccessibility.framework in Frameworks */,
 				1ED195B219599FF200DB2B07 /* MobileCoreServices.framework in Frameworks */,
 				1ED195B019599FD400DB2B07 /* SystemConfiguration.framework in Frameworks */,
 				1ED195AE19599F8F00DB2B07 /* CFNetwork.framework in Frameworks */,
@@ -1848,9 +1846,11 @@
 		1ED1941A19598D3000DB2B07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tuanjie Song (2Y46FR688A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tuanjie Song (2Y46FR688A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BookSystem/BookSystem-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1869,9 +1869,11 @@
 		1ED1941B19598D3000DB2B07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tuanjie Song (2Y46FR688A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tuanjie Song (2Y46FR688A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BookSystem/BookSystem-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

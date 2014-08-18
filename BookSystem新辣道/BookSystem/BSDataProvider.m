@@ -669,11 +669,19 @@
                     candan.fujianame=[ary3 objectAtIndex:7];
                     candan.pcount=[ary3 objectAtIndex:8];
                     candan.promonum=[ary3 objectAtIndex:9];
+                    
                     NSArray *ary4=[[ary3 objectAtIndex:11] componentsSeparatedByString:@"!"];
                     NSMutableString *FujiaName =[NSMutableString string];
+                    
                     for (NSString *str in ary4) {
                         [FujiaName appendFormat:@"%@ ",str];
                     }
+                    float fj=0.0f;
+                    for (NSString *str in [[ary3 objectAtIndex:13] componentsSeparatedByString:@"!"]) {
+                        fj+=[str floatValue];
+                    }
+                    candan.fujiaprice=[NSString stringWithFormat:@"%.2f",fj];
+                    
                     candan.fujianame=FujiaName;
                     candan.price=[ary3 objectAtIndex:12];
                     candan.unit=[ary3 objectAtIndex:16];

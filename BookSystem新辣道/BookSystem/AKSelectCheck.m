@@ -200,18 +200,20 @@
     if (section==0) {
         float i=0.0;
         float j=0.0;
+        float k=0.0;
         NSArray *array=[_dataArray objectAtIndex:0];
         for (AKsCanDanListClass *caidan in array) {
             if (![caidan.tpname isEqualToString:caidan.pcname]&&[caidan.istc intValue]==1) {
-                
+                k+=[caidan.fujiaprice floatValue];
             }else
             {
                 i+=[caidan.pcount floatValue];
                 j+=[caidan.price floatValue];
+                k+=[caidan.fujiaprice floatValue];
             }
         }
         UILabel *lb=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 768-164, 30)];
-        lb.text=[NSString stringWithFormat:@"共点菜品%.1f道,总计%.2f元",i,j];
+        lb.text=[NSString stringWithFormat:@"共点菜品%.1f道,总计%.2f元,附加项价格:%.2f",i,j,k];
         lb.textAlignment=NSTextAlignmentCenter;
         [view addSubview:lb];
         UILabel *lb1=[[UILabel alloc] initWithFrame:CGRectMake(0, 30,100, 40)];
@@ -294,7 +296,7 @@
         cell.price.text=[NSString stringWithFormat:@"%.2f",[((AKsCanDanListClass *)[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).price floatValue]];
         cell.price.textAlignment=NSTextAlignmentRight;
         cell.unit.text=((AKsCanDanListClass *)[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).unit;
-        cell.addition.text=((AKsCanDanListClass *)[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).fujianame;
+        cell.addition.text=[NSString stringWithFormat:@"%@    附加项价格:%@",((AKsCanDanListClass *)[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).fujianame,((AKsCanDanListClass *)[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).fujiaprice];
     }
     else if(indexPath.section==1){
         NSLog(@"%@",[[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);

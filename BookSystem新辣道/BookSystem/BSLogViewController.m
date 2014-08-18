@@ -612,7 +612,7 @@
     
 }
 - (void)chuckOrderWithOptions:(NSDictionary *)info{
-    tvOrder.userInteractionEnabled=YES;
+    tvOrder.userInteractionEnabled=NO;
     if (info) {
         if ([info objectForKey:@"count"]!=nil||[info objectForKey:@"recount"]!=nil) {
             if ([[info objectForKey:@"count"] intValue]>[[_dict objectForKey:@"total"] intValue]-[[_dict objectForKey:@"promonum"] intValue]||[[info objectForKey:@"recount"] intValue]>[[_dict objectForKey:@"promonum"] intValue]) {
@@ -659,11 +659,15 @@
                             [self dismissViews];
                         }else
                         {
+//                            111121H000006231406607747062(null)0@1049@@1049@@0@1@1@@@87.00@@(null)@(null)@份@1@1;
+//                            111121H000006231406607747062(null)0@7210@@1049@@0@1.0@0@@@87@@0@1@份@1@(null);
                             [_dict setValue:_promonum forKey:@"promonum"];
                             if ([[_dict objectForKey:@"ISTC"] intValue]==1) {
                                 for (int i=0; i<[_dataArray count]; i++) {
-                                    if ([[_dict objectForKey:@"DES"] isEqualToString:[[_dataArray objectAtIndex:i] objectForKey:@"TPNANE"]]&&[[_dict objectForKey:@"TPNUM"] isEqualToString:[[_dataArray objectAtIndex:i] objectForKey:@"TPNUM"]]) {
-                                        [[_dataArray objectAtIndex:i] setValue:@"0" forKey:@"promonum"];
+                                    if ([[_dict objectForKey:@"DES"] isEqualToString:[[[_dataArray objectAtIndex:i] objectForKey:@"food"] objectForKey:@"TPNANE"]]&&[[_dict objectForKey:@"TPNUM"] isEqualToString:[[[_dataArray objectAtIndex:i] objectForKey:@"food"]objectForKey:@"TPNUM"]]) {
+                                        [[[_dataArray objectAtIndex:i] objectForKey:@"food"] setValue:[[[_dataArray objectAtIndex:i] objectForKey:@"food"] objectForKey:@"CNT"] forKey:@"promonum"];
+                                        [[[_dataArray objectAtIndex:i] objectForKey:@"food"] setValue:[info objectForKey:@"INIT"] forKey:@"promoReason"];
+                                        
                                     }
                                 }
                                 
